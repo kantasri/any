@@ -3,158 +3,424 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Getting Started with Python for Data Analysis | DCC - TU Delft</title>
+    <title>Delft University of Technology | TU Delft</title>
     <style>
-        /* Base Styles & TU Delft Branding */
-        :root {
-            --tud-blue: #00a6d6;
-            --tud-black: #000000;
-            --tud-white: #ffffff;
-            --tud-light-gray: #f1f1f1;
-            --tud-dark-gray: #333333;
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        
         body {
-            font-family: 'Arial', 'Helvetica Neue', sans-serif;
-            line-height: 1.7;
-            color: var(--tud-dark-gray);
-            background-color: var(--tud-white);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
         }
-        /* Typography */
-        h1, h2, h3 {
-            color: var(--tud-blue);
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #01579B;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
             font-weight: 600;
         }
-        h1 { font-size: 2.2em; border-bottom: 2px solid var(--tud-light-gray); padding-bottom: 0.3em; }
-        h2 { font-size: 1.6em; margin-top: 1.5em; }
-        h3 { font-size: 1.2em; }
-        a {
-            color: var(--tud-blue);
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #B3E5FC;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(1, 87, 155, 0.8), rgba(1, 87, 155, 0.9)), url('https://www.tudelft.nl/over-tu-delft/strategie/nieuwe-strategie-2022-2025/TUDelft-campus.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #FF5722;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #E64A19;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #01579B;
+            font-size: 2rem;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-img {
+            height: 200px;
+            background-color: #01579B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card h3 {
+            color: #01579B;
+            margin-bottom: 1rem;
+        }
+        
+        /* Facts Section */
+        .facts {
+            background-color: #01579B;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .facts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .fact-item {
+            padding: 1rem;
+        }
+        
+        .fact-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* News Section */
+        .news-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .news-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .news-title {
+            color: #01579B;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #002B49;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column a {
+            color: #B3E5FC;
             text-decoration: none;
         }
-        a:hover {
+        
+        .footer-column a:hover {
             text-decoration: underline;
         }
-        /* Code Blocks */
-        code {
-            background-color: var(--tud-light-gray);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #B3E5FC;
         }
-        pre {
-            background-color: var(--tud-light-gray);
-            padding: 15px;
-            border-left: 4px solid var(--tud-blue);
-            overflow-x: auto;
-            line-height: 1.4;
-        }
-        pre code {
-            background: none;
-            padding: 0;
-        }
-        /* Images */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-            border: 1px solid #ddd;
-        }
-        /* Header & Footer */
-        .post-meta {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 2em;
-        }
-        .dcc-footer {
-            margin-top: 3em;
-            padding-top: 1em;
-            border-top: 1px solid var(--tud-light-gray);
-            font-size: 0.9em;
-            color: #666;
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 0.8rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-
+    <!-- Header -->
     <header>
-        <!-- You can link this back to the main DCC site -->
-        <p><a href="/">← Back to Digital Competence Centre</a></p>
+        <div class="container header-content">
+            <div class="logo">
+                <!-- Placeholder for TU Delft logo -->
+                <div style="width: 60px; height: 60px; background-color: white; display: flex; align-items: center; justify-content: center; color: #01579B; font-weight: bold;">TUD</div>
+                <h1>Delft University of Technology</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Education</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Innovation</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">News & Events</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <article>
-        <h1>Getting Started with Python for Data Analysis</h1>
-        
-        <div class="post-meta">
-            Published on <time datetime="2023-10-27">October 27, 2023</time> | 
-            Author: <a href="#">Dr. A. Researcher</a> | 
-            Topic: <a href="#">Programming</a>, <a href="#">Data Analysis</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Challenge the future</h2>
+            <p>TU Delft is the oldest and largest Dutch public technical university, located in Delft, Netherlands. As of 2022 it is ranked among the top 15 engineering and technology universities in the world.</p>
+            <a href="#" class="btn">Explore our programs</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container main-content">
+        <!-- Programs Section -->
+        <h2 class="section-title">Our Programs</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-img" style="background-color: #01579B;">Aerospace Engineering</div>
+                <div class="card-content">
+                    <h3>Aerospace Engineering</h3>
+                    <p>One of the most prestigious aerospace faculties in the world, focusing on aeronautics, astronautics, and related fields.</p>
+                    <a href="#" class="btn" style="margin-top: 1rem;">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-color: #0277BD;">Architecture</div>
+                <div class="card-content">
+                    <h3>Architecture</h3>
+                    <p>Our Faculty of Architecture and the Built Environment is internationally renowned for its education and research.</p>
+                    <a href="#" class="btn" style="margin-top: 1rem;">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-color: #0288D1;">Civil Engineering</div>
+                <div class="card-content">
+                    <h3>Civil Engineering</h3>
+                    <p>We educate the civil engineers of the future who will design, build and maintain our living environment.</p>
+                    <a href="#" class="btn" style="margin-top: 1rem;">Learn More</a>
+                </div>
+            </div>
         </div>
 
-        <p>This guide provides a quick start for TU Delft researchers who are new to using Python for their data analysis workflows. We'll cover the essential setup and first steps to empower your research.</p>
+        <!-- Facts Section -->
+        <section class="facts">
+            <div class="container">
+                <h2 class="section-title" style="color: white;">TU Delft in Numbers</h2>
+                <div class="facts-container">
+                    <div class="fact-item">
+                        <div class="fact-number">25,000+</div>
+                        <div class="fact-description">Students</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-number">6,000+</div>
+                        <div class="fact-description">Employees</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-number">1842</div>
+                        <div class="fact-description">Year Founded</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-number">16</div>
+                        <div class="fact-description">Bachelor Programs</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <h2>1. Setting Up Your Environment</h2>
-        <p>We recommend using <a href="https://conda.io" target="_blank">Conda</a> for package management as it simplifies installing scientific libraries. The TU Delft provides access to many software tools; check the <a href="#">IT Guide</a> for more information.</p>
+        <!-- News Section -->
+        <h2 class="section-title">Latest News</h2>
+        <div class="news-container">
+            <div class="news-item">
+                <div class="news-date">June 15, 2023</div>
+                <h3 class="news-title">TU Delft researchers develop revolutionary water purification method</h3>
+                <p>Scientists at TU Delft have created a new method for purifying water that is more efficient and environmentally friendly than current techniques.</p>
+                <a href="https://www.tudelft.nl/stories">Read more</a>
+            </div>
+            <div class="news-item">
+                <div class="news-date">May 28, 2023</div>
+                <h3 class="news-title">TU Delft team wins international robotics competition</h3>
+                <p>The TU Delft Robotics Institute team has won first place in the prestigious European Robotics Challenge with their innovative autonomous system.</p>
+                <a href="https://www.tudelft.nl/community">Read more</a>
+            </div>
+            <div class="news-item">
+                <div class="news-date">April 12, 2023</div>
+                <h3 class="news-title">New sustainable energy center opens on campus</h3>
+                <p>The university has inaugurated a state-of-the-art research facility dedicated to advancing renewable energy technologies.</p>
+                <a href="https://www.tudelft.nl/community">Read more</a>
+            </div>
+        </div>
+    </main>
 
-        <p>Create a new Conda environment with the necessary packages:</p>
-
-        <pre><code>conda create -n my-data-analysis python=3.9 pandas numpy matplotlib jupyterlab
-conda activate my-data-analysis</code></pre>
-
-        <h2>2. Your First Analysis with Pandas</h2>
-        <p>Pandas is the cornerstone library for data manipulation in Python. Let's see how to load a simple CSV file.</p>
-
-        <pre><code>import pandas as pd
-
-# Load data from a CSV file
-# Pro-Tip: Always inspect your data after loading!
-data = pd.read_csv('experiment_results.csv')
-print(data.head()) # Displays the first 5 rows
-        </code></pre>
-
-        <p>The output might look something like this:</p>
-
-        <!-- Example of a table for data output -->
-        <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
-            <thead>
-                <tr style="background-color: var(--tud-light-gray);">
-                    <th style="border: 1px solid #ddd; padding: 8px;">Sample</th>
-                    <th style="border: 1px solid #ddd; padding: 8px;">Temperature (K)</th>
-                    <th style="border: 1px solid #ddd; padding: 8px;">Conductivity</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td style="border: 1px solid #ddd; padding: 8px;">A1</td><td style="border: 1px solid #ddd; padding: 8px;">293</td><td style="border: 1px solid #ddd; padding: 8px;">5.2</td></tr>
-                <tr><td style="border: 1px solid #ddd; padding: 8px;">A2</td><td style="border: 1px solid #ddd; padding: 8px;">295</td><td style="border: 1px solid #ddd; padding: 8px;">5.5</td></tr>
-            </tbody>
-        </table>
-
-        <h2>3. Next Steps and DCC Support</h2>
-        <p>This is just the beginning. The DCC offers:</p>
-        <ul>
-            <li><strong>Workshops:</strong> Sign up for our "Python for Data Analysis" workshop.</li>
-            <li><strong>Consultation:</strong> Book a one-on-one session with us for your specific project.</li>
-            <li><strong>Resources:</strong> Check our knowledge base for more tutorials and best practices.</li>
-        </ul>
-
-        <h3>Further Reading</h3>
-        <ul>
-            <li><a href="#">Pandas Documentation</a></li>
-            <li><a href="#">TU Delft Research Data Management</a></li>
-            <li><a href="#">DCC Code Repository Templates</a></li>
-        </ul>
-
-    </article>
-
-    <footer class="dcc-footer">
-        <p><strong>Digital Competence Centre</strong><br>
-        TU Delft | Helping researchers excel through digital skills and tools.</p>
-        <p>Have a question? <a href="tg@painthebrain">Contact the DCC Team</a>.</p>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Delft University of Technology</li>
+                        <li>Mekelweg 5</li>
+                        <li>2628 CD Delft</li>
+                        <li>The Netherlands</li>
+                        <li>+31 (0)15 27 89111</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://www.tudelft.nl/stories">Study at TU Delft</a></li>
+                        <li><a href="https://www.tudelft.nl/stories">Research</a></li>
+                        <li><a href="https://www.tudelft.nl/stories">Campus & Facilities</a></li>
+                        <li><a href="https://www.tudelft.nl/stories">Alumni</a></li>
+                        <li><a href="https://www.tudelft.nl/stories">Working at TU Delft</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="https://t.me/painthebrain">LinkedIn</a></li>
+                        <li><a href="https://t.me/painthebrain">Twitter</a></li>
+                        <li><a href="https://t.me/painthebrain">Facebook</a></li>
+                        <li><a href="https://t.me/painthebrain">Instagram</a></li>
+                        <li><a href="https://t.me/painthebrain">YouTube</a></li>
+                        <li><a href="https://t.me/painthebrain">Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Delft University of Technology. All rights reserved.
+            </div>
+        </div>
     </footer>
-
 </body>
 </html>
