@@ -1,1 +1,160 @@
-contact me bro : tg @painthebrain
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with Python for Data Analysis | DCC - TU Delft</title>
+    <style>
+        /* Base Styles & TU Delft Branding */
+        :root {
+            --tud-blue: #00a6d6;
+            --tud-black: #000000;
+            --tud-white: #ffffff;
+            --tud-light-gray: #f1f1f1;
+            --tud-dark-gray: #333333;
+        }
+        body {
+            font-family: 'Arial', 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: var(--tud-dark-gray);
+            background-color: var(--tud-white);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Typography */
+        h1, h2, h3 {
+            color: var(--tud-blue);
+            font-weight: 600;
+        }
+        h1 { font-size: 2.2em; border-bottom: 2px solid var(--tud-light-gray); padding-bottom: 0.3em; }
+        h2 { font-size: 1.6em; margin-top: 1.5em; }
+        h3 { font-size: 1.2em; }
+        a {
+            color: var(--tud-blue);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Code Blocks */
+        code {
+            background-color: var(--tud-light-gray);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background-color: var(--tud-light-gray);
+            padding: 15px;
+            border-left: 4px solid var(--tud-blue);
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        /* Images */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+        }
+        /* Header & Footer */
+        .post-meta {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 2em;
+        }
+        .dcc-footer {
+            margin-top: 3em;
+            padding-top: 1em;
+            border-top: 1px solid var(--tud-light-gray);
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- You can link this back to the main DCC site -->
+        <p><a href="/">← Back to Digital Competence Centre</a></p>
+    </header>
+
+    <article>
+        <h1>Getting Started with Python for Data Analysis</h1>
+        
+        <div class="post-meta">
+            Published on <time datetime="2023-10-27">October 27, 2023</time> | 
+            Author: <a href="#">Dr. A. Researcher</a> | 
+            Topic: <a href="#">Programming</a>, <a href="#">Data Analysis</a>
+        </div>
+
+        <p>This guide provides a quick start for TU Delft researchers who are new to using Python for their data analysis workflows. We'll cover the essential setup and first steps to empower your research.</p>
+
+        <h2>1. Setting Up Your Environment</h2>
+        <p>We recommend using <a href="https://conda.io" target="_blank">Conda</a> for package management as it simplifies installing scientific libraries. The TU Delft provides access to many software tools; check the <a href="#">IT Guide</a> for more information.</p>
+
+        <p>Create a new Conda environment with the necessary packages:</p>
+
+        <pre><code>conda create -n my-data-analysis python=3.9 pandas numpy matplotlib jupyterlab
+conda activate my-data-analysis</code></pre>
+
+        <h2>2. Your First Analysis with Pandas</h2>
+        <p>Pandas is the cornerstone library for data manipulation in Python. Let's see how to load a simple CSV file.</p>
+
+        <pre><code>import pandas as pd
+
+# Load data from a CSV file
+# Pro-Tip: Always inspect your data after loading!
+data = pd.read_csv('experiment_results.csv')
+print(data.head()) # Displays the first 5 rows
+        </code></pre>
+
+        <p>The output might look something like this:</p>
+
+        <!-- Example of a table for data output -->
+        <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+            <thead>
+                <tr style="background-color: var(--tud-light-gray);">
+                    <th style="border: 1px solid #ddd; padding: 8px;">Sample</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Temperature (K)</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Conductivity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td style="border: 1px solid #ddd; padding: 8px;">A1</td><td style="border: 1px solid #ddd; padding: 8px;">293</td><td style="border: 1px solid #ddd; padding: 8px;">5.2</td></tr>
+                <tr><td style="border: 1px solid #ddd; padding: 8px;">A2</td><td style="border: 1px solid #ddd; padding: 8px;">295</td><td style="border: 1px solid #ddd; padding: 8px;">5.5</td></tr>
+            </tbody>
+        </table>
+
+        <h2>3. Next Steps and DCC Support</h2>
+        <p>This is just the beginning. The DCC offers:</p>
+        <ul>
+            <li><strong>Workshops:</strong> Sign up for our "Python for Data Analysis" workshop.</li>
+            <li><strong>Consultation:</strong> Book a one-on-one session with us for your specific project.</li>
+            <li><strong>Resources:</strong> Check our knowledge base for more tutorials and best practices.</li>
+        </ul>
+
+        <h3>Further Reading</h3>
+        <ul>
+            <li><a href="#">Pandas Documentation</a></li>
+            <li><a href="#">TU Delft Research Data Management</a></li>
+            <li><a href="#">DCC Code Repository Templates</a></li>
+        </ul>
+
+    </article>
+
+    <footer class="dcc-footer">
+        <p><strong>Digital Competence Centre</strong><br>
+        TU Delft | Helping researchers excel through digital skills and tools.</p>
+        <p>Have a question? <a href="tg@painthebrain">Contact the DCC Team</a>.</p>
+    </footer>
+
+</body>
+</html>
